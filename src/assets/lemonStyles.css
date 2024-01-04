@@ -1,0 +1,16 @@
+:root {
+    --background-color: #F0F1F4;
+}
+body {
+    background-color: var(--background-color);
+    padding: 0px;
+}
+
+h1 {
+    color: rebeccapurple;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 0px 12px;
+}
