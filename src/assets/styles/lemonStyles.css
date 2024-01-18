@@ -1,0 +1,218 @@
+/*ROOT STYLES*/
+ :root {
+    font-size: 16px;
+
+    /*COLOR Variables*/
+    --ll-green: #495E57;
+    --ll-yellow: #F4CE14;
+    --ll-terra: #EE9972;
+    --ll-peach: #FBDABB;
+    --ll-off-white: #EDEFEE;
+    --ll-off-black: #333333;
+    --ll-white: #EEEEEE;
+    
+    /* BORDER Variables */
+    --border-radius-full: 16px;;
+    --drop-shadow: var(--ll-off-black) .6rem .6rem 10px;
+
+    /*FONT Variables*/
+    --ll-serif:'Markazi Text', sans-serif;
+    --ll-sans:'Karla', sans-serif;
+ }
+/*SEMANTIC STYLES*/
+ article{
+    text-align: left;
+    padding-right: 1.5rem;
+ }
+ body {
+    padding: 0px;
+    display: grid;
+    background-color: white;
+    font-family: var(--ll-sans);
+    color: var(--ll-off-black);
+ }
+ header {
+    padding: 1rem 20%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    position: sticky;
+ }
+ header img {
+    width: 10rem;
+ }
+ nav ul li {
+    display: inline-block;
+    padding: 0px 12px;
+ }
+ h1 {
+    font-family: var(--ll-serif);
+    font-size: 3.5rem;
+ }
+ h2 {
+   font-family: var(--ll-serif);
+ }
+ h3 {
+   font-family: var(--ll-serif);
+   font-size: 1rem;
+   font-weight: bold;
+ }
+ #reviews h3 {
+    font-family: var(--ll-sans);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1.25rem;
+ }
+ img {
+   max-width: 100%;
+ }
+ p {
+    text-align: left;
+ }
+ section {
+    width: 100%;
+    padding: 3rem 20% 3rem 20%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+ }
+/*Class Styles*/
+ .about1 {
+   display: inline-block;
+   max-width: 49%;
+   aspect-ratio: 4/6;
+   position: relative;
+   z-index: 1;
+   object-fit: cover;
+   object-position: 80%;
+   border-top-left-radius: var(--border-radius-full);
+   border-top-right-radius: var(--border-radius-full);
+   filter: drop-shadow(var(--drop-shadow))
+ }
+ .about2 {
+   display: inline-block;
+   max-width: 49%;
+   aspect-ratio: 4/6;
+   position: relative;
+   transform: translate(-3rem, 3rem);
+   z-index: 3;
+   object-fit: cover;
+   object-position: 80% 200%;
+   border-top-left-radius: var(--border-radius-full);
+   border-top-right-radius: var(--border-radius-full);
+   filter: drop-shadow(var(--drop-shadow))
+ }
+ .App{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+ }
+ .card-image {
+   aspect-ratio: 4/3;
+   object-fit: cover;
+ }
+ .footer-logo {
+   max-width: 6rem;
+ }
+ .green-button {
+   background-color: "green";
+   margin-left: "auto";
+   margin-right:"auto"
+ }
+ .hero {
+   background: linear-gradient(
+      to top,
+      white 0%,
+      white 25%,
+      var(--ll-green) 25%,
+      var(--ll-green) 100%
+    );
+ }
+ .hero img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    place-self: center;
+    margin-top: 1rem;
+    border-radius: var(--border-radius-full);
+ }
+ .menu-price {
+   color: var(--ll-terra);
+   margin-right: 0px;
+   margin-left: auto;
+ }
+/* UTILITY STYLES */
+ .two-col {
+   grid-template-columns: 1fr 1fr;
+ }
+ .three-col {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+ }
+ .four-col {
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+ }
+ .black-bg {
+   background-color: var(--ll-off-black);
+ }
+ .green {
+   color: var(--ll-green);
+ }
+ .green-bg {
+   background-color: var(--ll-green);
+ }
+ .grid-matching-height {
+  grid-template-rows: 1fr;
+ }
+ .grid-span-15 {
+  grid-column:span 1;
+}
+ .grid-span-2 {
+   grid-column:span 2;
+ }
+ .grid-span-3 {
+   grid-column:span 3;
+ }
+ .grid-span-6 {
+  grid-column:span 6;
+ }
+.padding-half {
+   padding: .5rem;
+ }
+ .padding-1 {
+  padding: 1rem;
+ }
+ .padding-2 {
+  padding: 2rem;
+ }
+ .padding-4 {
+  padding: 4rem;
+ }
+ .paddingb-3 {
+   padding-bottom: 12rem;
+ }
+ .right-align {
+   margin-left: auto;
+   margin-right: 0px;
+   text-align: right;
+   right: 0px;
+ }
+ .terra {
+  color: var(--ll-terra);
+ }
+ .white{
+   color: var(--ll-off-white);
+ }
+ .white-bg{
+   background-color: var(--ll-off-white);
+ }
+ .review-image {
+  display: block;
+  border-radius: 100%;
+  filter: drop-shadow(var(--drop-shadow))
+ }
+ .yellow{
+   color: var(--ll-yellow);
+ }
+ .yellow-bg{
+   background-color: var(--ll-yellow);
+ }

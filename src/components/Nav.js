@@ -1,8 +1,10 @@
 import React from 'react';
-import './../assets/lemonStyles.css'
+import logo from '../assets/images/Asset16-4x.png';
+
 const Nav = () => {
     return(
         <header>
+            <img src={logo} alt="Little Lemon Logo" />
             <nav>
                 <ul>
                     <li>Home</li>

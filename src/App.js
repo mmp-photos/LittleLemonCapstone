@@ -4,7 +4,7 @@ import Specials from './components/Specials';
 import Reviews from './components/Reviews';
 import About from './components/About';
 import Footer from './components/Footer';
-import './assets/lemonStyles.css'
+import './assets/styles/lemonStyles.css'
 
 function App() {
   return (
@@ -15,7 +15,6 @@ function App() {
       <Reviews />
       <About />
       <Footer />
-      <h1>HomePage</h1>
     </div>
   );
 }
