@@ -13,7 +13,7 @@ const Reviews = ({item}) => {
                     <i className="fa-solid fa-star white"></i>
                     <i className="fa-solid fa-star white"></i>
                 </>)
-        break;
+                break;
             case 2:
                 setTotalStars(<>
                                 <i className="fa-solid fa-star terra"></i>
@@ -58,7 +58,7 @@ const Reviews = ({item}) => {
                                             </>)
                             break;
                         }
-        }, [])
+        }, [stars])
 
         return(
         <>

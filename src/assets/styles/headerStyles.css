@@ -1,0 +1,38 @@
+:root {
+    font-size: 16px;
+
+    /*COLOR Variables*/
+    --ll-green: #495E57;
+    --ll-yellow: #F4CE14;
+    --ll-terra: #EE9972;
+    --ll-peach: #FBDABB;
+    --ll-off-white: #EDEFEE;
+    --ll-off-black: #333333;
+    --ll-white: #EEEEEE;
+
+    --ll-serif:'Markazi Text', sans-serif;
+    --ll-sans:'Karla', sans-serif;
+
+}
+ header {
+    padding: 1rem 20%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+ }
+ header img {
+    width: 10rem;
+ }
+ nav a:link{
+    text-decoration: none;
+    color: var(--ll-off-black);
+ }
+ nav a:hover{
+    background-color: var(--ll-yellow);
+ }
+ nav a:active{
+   background-color: var(--ll-peach)
+ }
+ nav a:visited{
+   color: var(--ll-off-black);
+   background-color: var(--ll-terra);
+ }

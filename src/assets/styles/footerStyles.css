@@ -1,0 +1,42 @@
+:root {
+    font-size: 16px;
+
+    /*COLOR Variables*/
+    --ll-green: #495E57;
+    --ll-yellow: #F4CE14;
+    --ll-terra: #EE9972;
+    --ll-peach: #FBDABB;
+    --ll-off-white: #EDEFEE;
+    --ll-off-black: #333333;
+    --ll-white: #EEEEEE;
+
+    --ll-serif:'Markazi Text', sans-serif;
+    --ll-sans:'Karla', sans-serif;
+
+}
+footer{
+    width: 100%;
+    background-color: var(--ll-off-black);
+    padding: 26px;
+ }
+ .footer-logo {
+    max-width: 6rem;
+ }
+ h3{
+    font-size: 1.25rem;
+ }
+ footer a:link{
+    text-decoration: none;
+    color: var(--ll-off-white);
+ }
+ footer a:hover{
+    color: var(--ll-terra);
+ }
+ footer a:visited{
+    color: var(--ll-peach);
+ }
+ .social-media{
+   display: inline-block;
+   font-size: 2rem;
+   margin-right: 9px;
+ }
