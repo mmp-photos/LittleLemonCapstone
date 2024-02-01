@@ -21,10 +21,10 @@ export const reviewsData = [
         description: "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
         stars: 5
     },
-    {id: 5,
-        name: "Kimber Dayton",
-        image: kimber,
-        description: "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
-        stars: 5
-    }
+    // {id: 3,
+    //     name: "Kimber Dayton",
+    //     image: kimber,
+    //     description: "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
+    //     stars: 5
+    // }
 ];

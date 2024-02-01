@@ -62,7 +62,7 @@ const Reviews = ({item}) => {
 
         return(
         <>
-            <img className="review-image" src={image} alt={name} />
+            <img className="review-image" style={{marginBottom: "16px"}} src={image} alt={name} />
                 <h3>{name}</h3>
                 {totalStars}
             <p>{description}</p>

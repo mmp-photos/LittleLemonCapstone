@@ -1,9 +1,8 @@
 import BookingForm from '../elements/BookingForm';
-import '../../assets/styles/headerStyles.css';
 
 function BookingPage({ updateTimes, availableTimes }) {
 
-  console.log("BookingPage availableTimes:", availableTimes);
+  // console.log("BookingPage availableTimes:", availableTimes);
   
     return (
       <>

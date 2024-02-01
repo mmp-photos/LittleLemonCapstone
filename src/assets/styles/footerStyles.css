@@ -1,6 +1,5 @@
 :root {
-    font-size: 16px;
-
+    background-color: white;
     /*COLOR Variables*/
     --ll-green: #495E57;
     --ll-yellow: #F4CE14;
@@ -12,12 +11,20 @@
 
     --ll-serif:'Markazi Text', sans-serif;
     --ll-sans:'Karla', sans-serif;
+    --footer-width: 80%;
+}
 
+@media (max-width: 650px) {
+   :root {
+      --footer-width: 100%;
+   }
 }
 footer{
-    width: 100%;
+    position: absolute;
+    width: var(--footer-width);
+    bottom: 0px;
     background-color: var(--ll-off-black);
-    padding: 26px;
+    padding: 24px;
  }
  .footer-logo {
     max-width: 6rem;

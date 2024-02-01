@@ -4,7 +4,7 @@ import ma2 from '../../assets/images/Mario and Adrian b.jpg';
 
 const About = () => {
     return(
-        <section id="About" className="two-col paddingb-3">
+        <section id="About" className="two-col paddingb-3" style={{paddingBottom: "24rem"}}>
             <article>
                 <h1>About</h1>
                 <p>Meet Mario and Adrian, the dynamic duo behind Little Lemon, your new favorite family Italian restaurant in the vibrant city of Chicago. Hailing from the charming streets of Italy, these passionate food enthusiasts decided to bring the authentic flavors of their homeland to the Windy City.</p>

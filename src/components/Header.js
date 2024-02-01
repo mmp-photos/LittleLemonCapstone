@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import logo from '../assets/images/Asset16-4x.png';
 import {
     Container,
@@ -17,16 +18,18 @@ import {
 const Header = ( { updateTimes, availableTimes } ) => {
     const [collapsed, setCollapsed] = useState(true);
     const toggleNavbar = () => setCollapsed(!collapsed);
-    
-    console.log("Header availableTimes:", availableTimes);
+    const navigate = useNavigate();
+    // console.log("Header availableTimes:", availableTimes);
 
     return(
-        <Container>
+        <Container id="Header">
             <Row>
-                <Navbar color="faded" light expand="md">
+                <Navbar color="faded" light expand="lg">
                 <Col>
                     <NavbarBrand className="me-auto">
-                        <a className="logo" href="/"><img src={logo} className="primary-logo" alt="Little Lemon Logo" /></a>
+                        <button onClick={() => navigate('/')}>
+                            <img src={logo} className="primary-logo" alt="Little Lemon Logo" />
+                        </button>
                     </NavbarBrand>
                 </Col>
                 <Col className="right-align">
@@ -40,7 +43,7 @@ const Header = ( { updateTimes, availableTimes } ) => {
                             <NavLink href="/#About">About</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/#Menu">Menu</NavLink>
+                            <NavLink href="/#Specials">Menu</NavLink>
                         </NavItem>
                        <NavItem>
                             <NavLink href="booking">Reservations</NavLink>

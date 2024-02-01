@@ -1,6 +1,11 @@
 /*ROOT STYLES*/
  #root {
   width: 100%;
+  min-height: 100%;
+  background-color: white;
+  position: relative;
+  padding-left: var(--root-padding);
+  padding-right: var(--root-padding);
  }
  :root {
     font-size: 16px;
@@ -28,6 +33,7 @@
     --section-padding: 1.5rem;
     --display-desktop-only: inline-block;
     --display-mobile-only: none;
+    --root-padding: 10%;
  }
 
  @media (max-width: 650px) {
@@ -37,6 +43,7 @@
     --display-desktop-only: none;
     --display-mobile-only: inline-block;
     --mobile-nav: translateX(-35px);
+    --root-padding: 0px;
   }
 }
 /*SEMANTIC STYLES*/
@@ -71,10 +78,6 @@
  }
  button.mobile{
   display: var(--display-mobile-only);
- }
- nav ul li {
-    display: inline-block;
-    padding: 0px 12px;
  }
  h1 {
     font-family: var(--ll-serif);
@@ -162,6 +165,9 @@
     margin-top: 1rem;
     border-radius: var(--border-radius-full);
  }
+ .border-full{
+  border-radius: var(--border-radius-full);
+ }
  .menu-price {
    color: var(--ll-terra);
    margin-right: 0px;
@@ -175,7 +181,6 @@
   padding-left: 16px;
  }
  .primary-logo{
-  padding: 26px;
   max-width: 300px;
  }
 

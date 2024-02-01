@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useFormik, Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import { Container, Row, Col, Button } from 'reactstrap';
-import DatePicker from 'react-datepicker';
 import { useNavigate } from "react-router-dom";
 import '../../assets/styles/bookingStyles.css';
+import heroImage from '../../assets/images/restauranfood.jpg';
 
 const BookingForm = ( { updateTimes, availableTimes, } ) => {
     const [ resDate, setResDate ] = useState();
@@ -13,9 +13,15 @@ const BookingForm = ( { updateTimes, availableTimes, } ) => {
     const [ guests, setGuests ] = useState();
     const [ occasion, setOccasion ] = useState();
     const [ formData, setFormData ] = useState(false);
+    const occasionOptions = ["Birthday", "Anniversary"]
 
-    const handleSubmit = () => {
-        setFormData(true)
+    const navigate = useNavigate();
+    const handleSubmit = (values, { setSubmitting }) => {
+        const submittedValues = values;
+        console.log(`Values passed to the form are: ${values.occasion}`);
+        setSubmitting(false);
+        navigate('/confirmed-booking', { state: {date: submittedValues.date, occasion: submittedValues.occasion} });
+
     };
     
     const handleDateChange = (date) => {
@@ -24,18 +30,6 @@ const BookingForm = ( { updateTimes, availableTimes, } ) => {
         updateTimes(newTimes);
     };
 
-    const navigate = useNavigate();
-    function submitForm(formData){
-        if(formData){
-            console.log('formData has been passed to the sumbitForm function')
-            navigate('/confirmed-booking');
-        }
-    };
-  
-    useEffect(() => {
-        submitForm();
-    },[]);
-
     const today = new Date();
     today.setHours(0, 0, 0, 0)
 
@@ -43,27 +37,21 @@ const BookingForm = ( { updateTimes, availableTimes, } ) => {
     const reservationSchema = Yup.object().shape({
         date: Yup.date().required('Please select a date').min(today,'Please choose future date'),
         time: Yup.string().required('Please select a time'),
+        guests: Yup.number().required('Please select a number of guests').positive('Please select a number of 1 or grater').max(10, "We cannot reserve a table for more than 10 guests"),
         occasion: Yup.string().required('Please select an occasion'),
     });
 
     const initialValues = {
         date: null,
         time: '',
+        guests: '1',
         occasion: '',
       };
 
-    const formik = useFormik({
-        initialValues: {reservationDate: '',
-                        reservationTime: '',
-                        guests: '1',
-                        occasion: ''},
-        onSubmit: values => {
-                    alert(JSON.stringify(values, null, 2));
-                  },
-      });    
+    const timeOptions = ['12:00 PM', '1:00 PM', '6:00 PM', '8:00 PM'];
 
     return(
-        <Container className="stretch-content">
+        <Container id="Booking" className="stretch-content" style={{paddingBottom: "24rem"}}>
             <Row>
                 <Col>
                 <Formik
@@ -71,7 +59,8 @@ const BookingForm = ( { updateTimes, availableTimes, } ) => {
                     validationSchema={reservationSchema}
                     onSubmit={handleSubmit}
                 >
-                <Form style={{display: "grid", maxWidth: "200px", gap: "20px", backgroundColor: "#F4CE14", paddingRight: "4rem"}}>
+                <Form>
+                    <h1>Make a Reservation</h1>
                     <div>
                         <label htmlFor="date">Choose date</label>
                         <Field as="date" name="date">
@@ -80,38 +69,49 @@ const BookingForm = ( { updateTimes, availableTimes, } ) => {
                         <ErrorMessage name="date" component="div" className="error" />
                     </div>
 
+                    <div>
+                        <label>Time:</label>
+                        <Field as="select" name="time">
+                            <option value={resTime || ''} disabled>
+                            Select a time
+                            </option>
+                            {availableTimes.map((time) => (
+                            <option key={time} value={time}>
+                                {time}
+                            </option>
+                            ))}
+                        </Field>
+                        <ErrorMessage name="time" component="div" className="error" />
+                    </div>
 
-                        <label htmlFor="res-time">Choose time</label>
-                        <select id="reservationTime" value={resTime || ''} name="reservation time" onChange={(e) => {setResTime(e.target.value)}}>
-                            <option > Select a Time</option>
-							{
-								availableTimes.map(time => {return (
-									<option key={time}>{time}</option>
-								)})
-							}
-                        </select>
-
-                        <label htmlFor="res-time">Choose time</label>
-                        <select id="resTime" value={resTime || ''} name="reservation time" onChange={(e) => {setResTime(e.target.value)}}>
-                            <option > Select a Time</option>
-							{
-								availableTimes.map(time => {return (
-									<option key={time}>{time}</option>
-								)})
-							}
-                        </select>
-                        <label htmlFor="guests">Number of guests</label>
+                    <div>
+                        <label>Guests:</label>
+                        <Field as="number" name="guests">
                         <input type="number" placeholder="1" min="1" max="10" id="guests" value= {guests || ''} onChange={(e) => setGuests(e.target.value)} />
-                        <label htmlFor="occasion">Occasion</label>
-                        <select id="occasion" value={occasion || ''} onChange={(e) => setOccasion(e.target.value)}>
-                            <option>Birthday</option>
-                            <option>Anniversary</option>
-                        </select>
+                        </Field>
+                        <ErrorMessage name="guests" component="div" className="error" />
+                    </div>
 
-                        <Button onClick={handleSubmit} value="Make Your reservation">Make Your reservation</Button>
-
+                    <div>
+                        <label>Occasion:</label>
+                        <Field as="select" name="occasion">
+                        <option value="" disabled>
+                            Select an occasion
+                            </option>
+                            {occasionOptions.map((occasion) => (
+                            <option key={occasion} value={occasion}>
+                                {occasion}
+                            </option>
+                            ))}
+                        </Field>
+                        <ErrorMessage name="occasion" component="div" className="error" />
+                    </div>
+                        <button type="submit">Make Your reservation</button>
                     </Form>
                 </Formik>
+                </Col>
+                <Col className="desktop-only">
+                    <img className="border-full" src={heroImage} alt="Dinner" />
                 </Col>
             </Row>
         </Container>

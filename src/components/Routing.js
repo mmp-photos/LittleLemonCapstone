@@ -17,7 +17,7 @@ const Routing = ({ updateTimes, availableTimes }) => {
         path="/booking"
         element={<BookingPage updateTimes={updateTimes} availableTimes={availableTimes} />}
       />
-      <Route path="/order-online" element={<Order />} />
+      <Route path="/order" element={<Order />} />
       <Route path="/login" element={<Login />} />
       <Route path="/confirmed-booking" element={<ConfirmedBooking />} />
     </Routes>
