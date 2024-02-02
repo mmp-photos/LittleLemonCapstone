@@ -15,7 +15,7 @@ const BookingForm = ( { updateTimes, availableTimes, } ) => {
     const [ formData, setFormData ] = useState(false);
     const occasionOptions = ["Birthday", "Anniversary"]
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const handleSubmit = (values, { setSubmitting }) => {
         const submittedValues = values;
         console.log(`Values passed to the form are: ${values.occasion}`);
